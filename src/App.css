@@ -1,1 +1,34 @@
+/* Resets */
+body,
+p {
+  margin: unset;
+}
 
+h1 {
+  margin: unset;
+  font-size: unset;
+  font-weight: unset;
+}
+
+img {
+  vertical-align: top;
+}
+
+/* Layouts */
+.main-container,
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Components */
+.box {
+  border: 2px solid black;
+  width: 400px;
+  height: 400px;
+}
+
+.item-img {
+  width: 100%;
+  max-width: 200px;
+}
