@@ -25,10 +25,14 @@ function App() {
     setUserSelect(choice[userChoice]);
 
     let computerChoice = randomChoice();
+    setComputerSelect(computerChoice);
   };
 
   const randomChoice = () => {
-    let randomItem = Math.random();
+    let itemArray = Object.keys(choice);
+    let randomItem = Math.floor(Math.random() * itemArray.length);
+    let final = itemArray[randomItem];
+    return choice[final];
   };
   return (
     <>
