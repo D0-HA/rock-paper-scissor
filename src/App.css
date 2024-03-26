@@ -15,20 +15,84 @@ img {
 }
 
 /* Layouts */
-.main-container,
-.button-container {
+.main-container {
   display: flex;
   justify-content: center;
+  height: 720px;
+}
+
+.button-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* Components */
 .box {
-  border: 2px solid black;
   width: 400px;
   height: 400px;
+  margin: auto 100px;
+  text-align: center;
+  font-weight: 600;
+  border: 10px solid gray;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .item-img {
   width: 100%;
+  height: 100%;
   max-width: 200px;
+  max-height: 200px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 14px;
+}
+
+.result {
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+
+button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+
+.button-type_scissor {
+  background-image: url(./assets/Scissor.png);
+}
+
+.button-type_rock {
+  background-image: url(./assets/Rock.png);
+}
+
+.button-type_paper {
+  background-image: url(./assets/Paper.png);
+}
+
+.Win {
+  color: green;
+  border: 10px solid green;
+}
+
+.Lose {
+  color: red;
+  border: 10px solid red;
+}
+
+.Draw {
+  color: blue;
+  border: 10px solid blue;
 }
