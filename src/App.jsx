@@ -20,12 +20,15 @@ const choice = {
 function App() {
   const [userSelect, setUserSelect] = useState(null);
   const [computerSelect, setComputerSelect] = useState(null);
+  const [result, setResult] = useState("");
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
 
     let computerChoice = randomChoice();
     setComputerSelect(computerChoice);
+
+    setResult(judgement(choice[userChoice], computerChoice));
   };
 
   const randomChoice = () => {
@@ -34,16 +37,33 @@ function App() {
     let final = itemArray[randomItem];
     return choice[final];
   };
+
+  const judgement = (user, computer) => {
+    if (user.name === computer.name) {
+      return "Draw";
+    } else if (user.name === "Rock")
+      return computer.name === "Scissor" ? "Win" : "Lose";
+    else if (user.name === "Paper")
+      return computer.name === "Rock" ? "Win" : "Lose";
+    else if (user.name === "Scissor")
+      return computer.name === "Paper" ? "Win" : "Lose";
+  };
   return (
     <>
       <div className="main-container">
-        <Box title="You" item={userSelect} />
-        <Box title="Computer" item={computerSelect} />
+        <Box title="You" item={userSelect} result={result} />
+        <Box title="Computer" item={computerSelect} result={result} />
       </div>
       <div className="button-container">
-        <button onClick={() => play("scissor")}>가위</button>
-        <button onClick={() => play("rock")}>바위</button>
-        <button onClick={() => play("paper")}>보</button>
+        <button className="button-type_scissor" onClick={() => play("scissor")}>
+          가위
+        </button>
+        <button className="button-type_rock" onClick={() => play("rock")}>
+          바위
+        </button>
+        <button className="button-type_paper" onClick={() => play("paper")}>
+          보
+        </button>
       </div>
     </>
   );
